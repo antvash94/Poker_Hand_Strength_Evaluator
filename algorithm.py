@@ -367,20 +367,28 @@ def output(hands):
     return ' '.join([x[1] for x in solution])
 
 
-with open('test.txt', 'r') as file:
-    for line in file.readlines():
-        card = line.rstrip().split(' ')
-        if card[0] == 'texas-holdem':
-            print('Not ready yet')
-        elif card[0] == 'omaha-holdem':
-            print('Not ready yet')
-        elif card[0] == 'five-card-draw':
-            hands = card[1:]
-            with open('solution.txt', 'a') as file:
-                file.writelines(output(hands)+'\n')
+def run():
+    with open('input.txt', 'r') as file:
+        for line in file.readlines():
+            card = line.rstrip().split(' ')
+            if card[0] == 'texas-holdem':
+                print('Not ready yet')
+            elif card[0] == 'omaha-holdem':
+                print('Not ready yet')
+            elif card[0] == 'five-card-draw':
+                hands = card[1:]
+                with open('output.txt', 'a') as file:
+                    try:
+                        file.writelines(output(hands)+'\n')
+                    except Exception:
+                        file.writelines('Error'+'\n')
 
-        else:
-            print('Error')
+            else:
+                print('Error')
+
+
+if __name__ == '__main__':
+    run()
 
 
 
