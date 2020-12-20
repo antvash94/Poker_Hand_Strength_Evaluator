@@ -5,6 +5,8 @@ values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6,
           }
 straight_string = '23456789TJQKA'
 
+# functions for sorting cards
+
 
 def sorted_cards(board='', hand=''):
     cards = board+hand
@@ -111,6 +113,8 @@ def get_key(val, my_dict):
         if val == value:
             return key
 
+# functions to check hand rating
+
 
 def check_straight(board='', hand=''):
     cards = sorted_cards(board, hand)
@@ -203,6 +207,9 @@ def check_hand(board='', hand=''):
         card_rating.append(1)
     result = (max(card_rating), hand)
     return result
+
+# functions for sorting hands
+
 
 def solution_sort(hands):
     swapped = True
@@ -351,9 +358,9 @@ def full_house_equal(hand1, hand2):
 def straight_equal(hand1, hand2):
     hand1_list = ''.join([i[0] for i in sorted_cards(hand=hand1)])
     print(hand1_list)
-    if hand1_list =='2345A':
+    if hand1_list == '2345A':
         return False
-    elif high_card_equal(hand1, hand2) and hand1_list!='2345A':
+    elif high_card_equal(hand1, hand2) and hand1_list != '2345A':
         return True
     else:
         return False
@@ -389,34 +396,3 @@ def run():
 
 if __name__ == '__main__':
     run()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
